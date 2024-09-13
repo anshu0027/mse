@@ -36,20 +36,14 @@ document.addEventListener("DOMContentLoaded", () => {
             file.href = file.dataset.src;
             file.classList.remove("disabled");
 
-            // Handle click event to open PDF in a viewer
+            // Handle click event to open PDF in the iframe viewer
             file.addEventListener("click", function (event) {
               event.preventDefault(); // Prevent default behavior for PDFs
 
-              const pdfViewer = document.createElement("iframe");
+              // Create and display PDF in iframe within the same page
+              const pdfViewer = document.querySelector("#pdf-viewer");
               pdfViewer.src = file.href;
-              pdfViewer.style.width = "100%";
-              pdfViewer.style.height = "600px";
-              pdfViewer.style.border = "none";
-
-              // Replace the content area with the PDF viewer
-              const contentArea = document.querySelector(".content");
-              contentArea.innerHTML = ""; // Clear previous content
-              contentArea.appendChild(pdfViewer);
+              pdfViewer.style.display = "block"; // Ensure iframe is visible
             });
           }
           // Update the src attribute for images
