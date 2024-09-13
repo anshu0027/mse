@@ -35,9 +35,21 @@ document.addEventListener("DOMContentLoaded", () => {
           if (file.classList.contains("pdf")) {
             file.href = file.dataset.src;
             file.classList.remove("disabled");
+
+            // Handle click event to open PDF in a viewer
             file.addEventListener("click", function (event) {
               event.preventDefault(); // Prevent default behavior for PDFs
-              window.open(file.href, "_blank"); // Open in new tab
+
+              const pdfViewer = document.createElement("iframe");
+              pdfViewer.src = file.href;
+              pdfViewer.style.width = "100%";
+              pdfViewer.style.height = "600px";
+              pdfViewer.style.border = "none";
+
+              // Replace the content area with the PDF viewer
+              const contentArea = document.querySelector(".content");
+              contentArea.innerHTML = ""; // Clear previous content
+              contentArea.appendChild(pdfViewer);
             });
           }
           // Update the src attribute for images
