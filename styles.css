@@ -1,0 +1,99 @@
+/* Resetting some default styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #f5f7fa; /* Light background color */
+    color: #333; /* Dark text for readability */
+    display: flex;
+    min-height: 100vh;
+    padding: 0 20px;
+}
+
+.container {
+    display: flex;
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+}
+
+.content {
+    width: 100%;
+    max-width: 1200px;
+    margin-top: 40px;
+}
+
+h1 {
+    font-size: 36px;
+    color: #007bff; /* Bright blue for headers */
+    margin-bottom: 30px;
+}
+
+.folder {
+    margin-bottom: 40px;
+    padding: 20px;
+    background-color: #ffffff; /* White background for folder containers */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+}
+
+.folder h2 {
+    font-size: 28px;
+    color: #0056b3; /* Darker blue for folder titles */
+    border-bottom: 2px solid #0056b3; /* Matching border for folder titles */
+    margin-bottom: 15px;
+    padding-bottom: 5px;
+}
+
+.file-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.file-list .file {
+    display: block;
+    width: calc(33.333% - 10px);
+    padding: 15px;
+    background-color: #e9ecef; /* Light gray background for file items */
+    border: 1px solid #dee2e6; /* Subtle border */
+    border-radius: 8px;
+    text-align: center;
+    text-decoration: none;
+    color: #333;
+    transition: transform 0.3s ease, background-color 0.3s ease;
+}
+
+.file-list .file:hover {
+    background-color: #f1f3f5; /* Slightly lighter gray on hover */
+    transform: scale(1.05);
+}
+
+.file-list .pdf {
+    background-color: #cce5ff; /* Light blue background for PDF files */
+}
+
+.file-list .image {
+    background-color: #b3d9ff; /* Slightly lighter blue for image files */
+}
+
+.file-list .video {
+    background-color: #99c2ff; /* Even lighter blue for video files */
+}
+
+/* Responsive design for smaller screens */
+@media (max-width: 768px) {
+    .file-list .file {
+        width: calc(50% - 10px); /* Two columns on medium screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .file-list .file {
+        width: 100%; /* Full width on small screens */
+    }
+}
